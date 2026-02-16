@@ -1,0 +1,40 @@
+<script src="proteines.js"></script>
+    <script src="sauces.js"></script>
+    <script src="feculents.js"></script>
+    <script src="legumes.js"></script>
+
+    <script>
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generer5Suggestions() {
+            const container = document.getElementById('app');
+            container.innerHTML = ''; 
+
+            for (let i = 0; i < 5; i++) {
+                const p = getRandom(listProteines);
+                const s = getRandom(listSauces);
+                const f = getRandom(listFeculents);
+                const l = getRandom(listLegumes);
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="label">Idée ${i + 1}</div>
+                    <div class="content">
+                        <strong>${p}</strong><br>
+                        <small>Sauce : ${s}</small><br>
+                        <small>Accompagnement : ${f} & ${l}</small>
+                    </div>
+                `;
+                container.appendChild(card);
+            }
+            window.scrollTo(0, 0);
+        }
+
+        // Lancement automatique au démarrage
+        generer5Suggestions();
+    </script>
+</body>
+</html>
