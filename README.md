@@ -1,2 +1,2 @@
 # HomeAutomation
-Home Automation
+simple dinner list program
